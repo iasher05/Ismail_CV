@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ismail Ashercook — Portfolio</title>
+  <meta name="description" content="Portfolio / CV site for Ismail Ashercook, Third-year Computer Science student." />
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#94a3b8;--accent:#7c3aed;--glass:rgba(255,255,255,0.03)}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+    body{background:linear-gradient(180deg,#071024 0%, #0b1220 100%);color:#e6eef8;line-height:1.5;overflow-x:hidden}
+    .container{max-width:980px;margin:36px auto;padding:24px;animation:fadeIn 1s ease-in}
+    header{display:flex;gap:20px;align-items:center;animation:slideDown 1s ease-out}
+    .avatar{width:96px;height:96px;border-radius:16px;background:linear-gradient(135deg,var(--accent),#2563eb);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:28px;color:white;transition:transform .3s}
+    .avatar:hover{transform:scale(1.05) rotate(2deg)}
+    h1{margin:0;font-size:26px;transition:color .3s}
+    h1:hover{color:var(--accent)}
+    p.lead{margin:6px 0;color:var(--muted)}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:18px;margin-top:18px;box-shadow:0 6px 18px rgba(2,6,23,0.6);transition:transform .3s, box-shadow .3s;animation:fadeUp 1s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:0 10px 20px rgba(2,6,23,0.8)}
+    .grid{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:18px}
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
+    .skill{background:var(--glass);padding:8px 10px;border-radius:10px;color:var(--muted);font-weight:600;transition:background .3s, color .3s}
+    .skill:hover{background:var(--accent);color:white}
+    .projects{display:grid;gap:12px}
+    .project{padding:12px;border-radius:10px;background:rgba(255,255,255,0.01);transition:background .3s}
+    .project:hover{background:rgba(255,255,255,0.05)}
+    .muted{color:var(--muted)}
+    .contact{display:flex;gap:10px;align-items:center}
+    a.btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;background:linear-gradient(90deg,var(--accent),#2563eb);color:white;font-weight:700;transition:opacity .3s, transform .3s}
+    a.btn:hover{opacity:0.9;transform:translateY(-2px)}
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px;animation:fadeIn 2s ease}
+    @media (max-width:880px){.grid{grid-template-columns:1fr}}
+    .meta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .pill{padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted);font-weight:600;transition:background .3s, color .3s}
+    .pill:hover{background:var(--accent);color:white}
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    .qr-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:8px;color:var(--muted);cursor:pointer;transition:background .3s, color .3s}
+    .qr-btn:hover{background:var(--accent);color:white}
+    .copy{cursor:pointer;transition:color .3s}
+    .copy:hover{color:var(--accent)}
+
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="avatar">IA</div>
+      <div>
+        <h1>Ismail Ashercook <span class="muted">•</span> Third-year Computer Science</h1>
+        <p class="lead">Motivated and detail-oriented student at Heriot-Watt University, seeking a summer internship in software development.</p>
+        <div class="meta-row">
+          <div class="pill">Expected graduation: 2027</div>
+          <div class="pill">Heriot-Watt University</div>
+          <div class="pill">Edinburgh, UK</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main>
+        <section class="card">
+          <h2>About</h2>
+          <p class="muted">I am a motivated and detail-oriented third-year Computer Science student at Heriot-Watt University. Proficient in multiple languages and frameworks with strong analytical and problem-solving abilities. Effective communicator and team player with a commitment to continuous learning.</p>
+        </section>
+
+        <section class="card">
+          <h2>Projects</h2>
+          <div class="projects">
+            <div class="project">
+              <strong>Student Portal Website</strong>
+              <p class="muted">Full-stack web portal for students to manage coursework and tasks. Backend built with Node.js and Express, MongoDB for database, and frontend with HTML, CSS, and JavaScript. Implemented secure authentication, role-based dashboards, responsive layout, and scalable structure. Emphasised usability, clean code, and database organisation.</p>
+            </div>
+            <div class="project">
+              <strong>Object-Oriented Banking System</strong>
+              <p class="muted">Designed and implemented a banking application in Java and C# to showcase strong object-oriented principles (inheritance, polymorphism, encapsulation). Features included user account management, transaction history, and error handling. Focused on clean design and SOLID principles.</p>
+            </div>
+            <div class="project">
+              <strong>Web Development Showcase</strong>
+              <p class="muted">Developed a feature-rich content management website using HTML, CSS, JavaScript, jQuery, PHP, and MySQL. Implemented modular design patterns, responsive layouts, user authentication, CRUD operations, and integration of JavaScript libraries for interactive components. Database structured with proper indexing and relationships for efficient queries.</p>
+            </div>
+            <div class="project">
+              <strong>IoT Monitoring with Raspberry Pi</strong>
+              <p class="muted">Built a Raspberry Pi–based temperature and motion monitoring system using C# and Assembly. Programmed hardware-level interactions for sensors, optimised low-level code for efficiency, and designed a simple web dashboard for real-time data visualisation.</p>
+            </div>
+            <div class="project">
+              <strong>Functional Programming Toolkit</strong>
+              <p class="muted">Created a set of functional utilities and problem-solving modules in OCaml and Python, including recursive algorithms, data transformations, and higher-order function examples. Focused on immutability, recursion, and functional design patterns to solve real-world problems.</p>
+            </div>
+            <div class="project">
+              <strong>Personal Finance Tracker</strong>
+              <p class="muted">Web app built with React and Firebase to track expenses and visualise spending. Integrated user authentication, charts, and dashboards to display trends. Enhanced frontend performance with React hooks and modular components.</p>
+            </div>
+            <div class="project">
+              <strong>2D Platformer Game</strong>
+              <p class="muted">Developed a Unity-based game in C# focusing on object-oriented programming and usability testing. Implemented physics-based movement, level design, and user experience improvements through peer feedback.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Experience</h2>
+          <ul>
+            <li><strong>Computer Science Tutor</strong> (Sept 2023 – Present) – Tutored GCSE and A-Level students in Python, SQL, HTML, CSS, PHP. Helped with exam preparation through structured lessons.</li>
+            <li><strong>Work Insight Week, CAPCO</strong> (Nov 2022) – Learned about Agile workflows, financial consultancy operations, and teamwork between developers and consultants.</li>
+            <li><strong>Maths Prefect (Volunteer), Craigmount High School</strong> (Jun 2022 – Jun 2023) – Supported teaching, provided peer mentoring, and developed leadership and communication skills.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Education</h2>
+          <p><strong>B.Sc. Computer Science</strong><br>Heriot-Watt University, 2023 – 2027</p>
+          <p class="muted">Year 1: 79% (First Class), Year 2: 74% (First Class)</p>
+        </section>
+
+        <section class="card">
+          <h2>Languages</h2>
+          <p>English (Fluent), Arabic (Fluent), French (Beginner)</p>
+        </section>
+
+        <section class="card">
+          <h2>Hobbies & Interests</h2>
+          <p class="muted">Aikido martial arts, Bebras Computing Challenge, Recreational Swimming, Gaming Society, Anime Society, Coding Society, Data analysis in stock trading.</p>
+        </section>
+      </main>
+
+      <aside>
+        <section class="card">
+          <h3>Skills</h3>
+          <div class="skills">
+            <div class="skill">Python</div>
+            <div class="skill">Java</div>
+            <div class="skill">R</div>
+            <div class="skill">C#</div>
+            <div class="skill">C++</div>
+            <div class="skill">Assembly</div>
+            <div class="skill">HTML/CSS/JS</div>
+            <div class="skill">PHP</div>
+            <div class="skill">SQL</div>
+            <div class="skill">Node.js</div>
+            <div class="skill">Git/GitHub</div>
+            <div class="skill">Figma</div>
+            <div class="skill">Adobe XD</div>
+            <div class="skill">OCaml</div>
+            <div class="skill">PDDL</div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>Contact</h3>
+          <div class="contact">
+            <div>
+              <div><strong>Email</strong></div>
+              <div class="muted"> <span id="email">i.ashercook@hotmail.com</span> <span class="copy" onclick="copyEmail()">(copy)</span></div>
+            </div>
+          </div>
+          <div style="margin-top:12px" class="actions">
+            <a class="btn" href="mailto:i.ashercook@hotmail.com">Email me</a>
+            <a class="btn" href="https://github.com/" target="_blank">GitHub</a>
+            <a class="btn" href="https://linkedin.com/in/" target="_blank">LinkedIn</a>
+            <button class="qr-btn" onclick="openQR()">Open QR for this page</button>
+          </div>
+          <p class="muted" style="margin-top:12px">Phone: 07761034643</p>
+        </section>
+      </aside>
+    </div>
+
+    
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function copyEmail(){
+      const t = document.getElementById('email').textContent;
+      navigator.clipboard?.writeText(t).then(()=>{alert('Email copied to clipboard')}).catch(()=>{prompt('Copy email', t)});
+    }
+    function openQR(){
+      const url = encodeURIComponent(location.href);
+      const q = `https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=${url}`;
+      window.open(q, '_blank');
+    }
+  </script>
+</body>
+</html>
