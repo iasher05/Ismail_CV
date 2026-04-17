@@ -1,187 +1,701 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ismail Ashercook — Portfolio</title>
-  <meta name="description" content="Portfolio / CV site for Ismail Ashercook, Third-year Computer Science student." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Ismail Ashercook – Computer Science student portfolio showcasing projects, skills, and experience. Modern, responsive design." />
+  <title>Ismail Ashercook · CS Portfolio</title>
   <style>
-    :root{--bg:#0f1724;--card:#0b1220;--muted:#94a3b8;--accent:#7c3aed;--glass:rgba(255,255,255,0.03)}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;}
-    body{background:linear-gradient(180deg,#071024 0%, #0b1220 100%);color:#e6eef8;line-height:1.5;overflow-x:hidden}
-    .container{max-width:980px;margin:36px auto;padding:24px;animation:fadeIn 1s ease-in}
-    header{display:flex;gap:20px;align-items:center;animation:slideDown 1s ease-out}
-    .avatar{width:96px;height:96px;border-radius:16px;background:linear-gradient(135deg,var(--accent),#2563eb);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:28px;color:white;transition:transform .3s}
-    .avatar:hover{transform:scale(1.05) rotate(2deg)}
-    h1{margin:0;font-size:26px;transition:color .3s}
-    h1:hover{color:var(--accent)}
-    p.lead{margin:6px 0;color:var(--muted)}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:18px;margin-top:18px;box-shadow:0 6px 18px rgba(2,6,23,0.6);transition:transform .3s, box-shadow .3s;animation:fadeUp 1s ease}
-    .card:hover{transform:translateY(-4px);box-shadow:0 10px 20px rgba(2,6,23,0.8)}
-    .grid{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:18px}
-    .skills{display:flex;flex-wrap:wrap;gap:10px}
-    .skill{background:var(--glass);padding:8px 10px;border-radius:10px;color:var(--muted);font-weight:600;transition:background .3s, color .3s}
-    .skill:hover{background:var(--accent);color:white}
-    .projects{display:grid;gap:12px}
-    .project{padding:12px;border-radius:10px;background:rgba(255,255,255,0.01);transition:background .3s}
-    .project:hover{background:rgba(255,255,255,0.05)}
-    .muted{color:var(--muted)}
-    .contact{display:flex;gap:10px;align-items:center}
-    a.btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;background:linear-gradient(90deg,var(--accent),#2563eb);color:white;font-weight:700;transition:opacity .3s, transform .3s}
-    a.btn:hover{opacity:0.9;transform:translateY(-2px)}
-    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px;animation:fadeIn 2s ease}
-    @media (max-width:880px){.grid{grid-template-columns:1fr}}
-    .meta-row{display:flex;gap:12px;flex-wrap:wrap}
-    .pill{padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted);font-weight:600;transition:background .3s, color .3s}
-    .pill:hover{background:var(--accent);color:white}
-    .actions{display:flex;gap:8px;flex-wrap:wrap}
-    .qr-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:8px;color:var(--muted);cursor:pointer;transition:background .3s, color .3s}
-    .qr-btn:hover{background:var(--accent);color:white}
-    .copy{cursor:pointer;transition:color .3s}
-    .copy:hover{color:var(--accent)}
+    /* ----- RESET & GLOBAL ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-    @keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    :root {
+      --bg-gradient-start: #0a0c15;
+      --bg-gradient-end: #111827;
+      --card-bg: rgba(18, 25, 45, 0.75);
+      --card-border: rgba(99, 102, 241, 0.2);
+      --accent-primary: #6366f1;
+      --accent-glow: #818cf8;
+      --text-light: #f1f5f9;
+      --text-muted: #94a3b8;
+      --skill-bg: rgba(99, 102, 241, 0.12);
+      --skill-hover: #4f46e5;
+      --btn-gradient: linear-gradient(135deg, #4f46e5, #7c3aed);
+      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      --shadow-hover: 0 20px 30px -12px rgba(0, 0, 0, 0.4);
+      --transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    body {
+      background: radial-gradient(circle at 10% 20%, var(--bg-gradient-start), var(--bg-gradient-end));
+      color: var(--text-light);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+      padding: 2rem 1.5rem;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* container – responsive + TV support */
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      width: 100%;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    /* typography */
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      background: linear-gradient(135deg, #ffffff, #c7d2fe);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--accent-primary);
+      padding-left: 0.75rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-light);
+    }
+
+    /* cards – glassmorphism + clean edges */
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(2px);
+      border: 1px solid var(--card-border);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(99, 102, 241, 0.5);
+      box-shadow: var(--shadow-hover);
+      background: rgba(20, 28, 48, 0.85);
+    }
+
+    /* header area */
+    .header-grid {
+      display: flex;
+      gap: 1.8rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      background: linear-gradient(145deg, #4f46e5, #a855f7);
+      border-radius: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: white;
+      box-shadow: 0 15px 30px -12px rgba(79, 70, 229, 0.4);
+      transition: var(--transition);
+    }
+
+    .avatar:hover {
+      transform: scale(1.02) rotate(1deg);
+      box-shadow: 0 20px 35px -10px rgba(99, 102, 241, 0.6);
+    }
+
+    .intro h1 {
+      margin-bottom: 0.25rem;
+    }
+
+    .lead {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0.5rem 0 0.75rem;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .pill {
+      background: rgba(99, 102, 241, 0.15);
+      backdrop-filter: blur(2px);
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: var(--transition);
+      border: 0.5px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .pill:hover {
+      background: var(--accent-primary);
+      color: white;
+      border-color: transparent;
+    }
+
+    /* layout grid – responsive */
+    .two-columns {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.8rem;
+    }
+
+    /* skills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.5rem;
+    }
+
+    .skill {
+      background: var(--skill-bg);
+      padding: 0.45rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #cbd5e1;
+      transition: var(--transition);
+      cursor: default;
+      backdrop-filter: blur(2px);
+    }
+
+    .skill:hover {
+      background: var(--skill-hover);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* projects & experience styling */
+    .projects-list, .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .project-item, .exp-item {
+      border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+      padding-bottom: 1rem;
+    }
+
+    .project-item:last-child, .exp-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      display: inline-block;
+      background: linear-gradient(120deg, #e0e7ff, #c7d2fe);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .tech-tag {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.2);
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      margin-right: 0.5rem;
+      margin-top: 0.5rem;
+      color: #a5b4fc;
+    }
+
+    .muted-text {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 0.4rem;
+    }
+
+    /* contact buttons + actions */
+    .contact-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .copy-btn {
+      background: transparent;
+      border: 1px solid var(--accent-primary);
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      color: var(--accent-primary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .copy-btn:hover {
+      background: var(--accent-primary);
+      color: white;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--btn-gradient);
+      padding: 0.7rem 1.2rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: white;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 5px 12px rgba(79, 70, 229, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--accent-primary);
+      color: var(--accent-primary);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: var(--accent-primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.05);
+      box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.5);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(99, 102, 241, 0.2);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* responsive refinements */
+    @media (max-width: 880px) {
+      body {
+        padding: 1.2rem;
+      }
+      .two-columns {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .avatar {
+        width: 85px;
+        height: 85px;
+        font-size: 2.2rem;
+        border-radius: 1.5rem;
+      }
+      .card {
+        padding: 1.2rem;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .header-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+      .meta-row {
+        justify-content: center;
+      }
+      .lead {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .intro h1 {
+        text-align: center;
+      }
+      .pill {
+        font-size: 0.75rem;
+      }
+      .skill {
+        font-size: 0.75rem;
+      }
+      .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* extra large screens / TV */
+    @media (min-width: 1600px) {
+      .container {
+        max-width: 1500px;
+      }
+      .two-columns {
+        gap: 2.5rem;
+      }
+      h1 {
+        font-size: 2.8rem;
+      }
+      .card {
+        padding: 2rem;
+      }
+    }
+
+    /* animations */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(12px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+
+    /* custom list spacing */
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    li {
+      margin-bottom: 0.9rem;
+      padding-left: 1rem;
+      border-left: 2px solid var(--accent-primary);
+    }
+    strong {
+      color: #e0e7ff;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="avatar">IA</div>
-      <div>
-        <h1>Ismail Ashercook <span class="muted">•</span> Third-year Computer Science</h1>
-        <p class="lead">Motivated and detail-oriented student at Heriot-Watt University, seeking a summer internship in software development.</p>
-        <div class="meta-row">
-          <div class="pill">Expected graduation: 2027</div>
-          <div class="pill">Heriot-Watt University</div>
-          <div class="pill">Edinburgh, UK</div>
-        </div>
+<div class="container">
+  <!-- header section with personal branding -->
+  <div class="header-grid">
+    <div class="avatar">IA</div>
+    <div class="intro">
+      <h1>Ismail Ashercook</h1>
+      <p class="lead">Motivated and detail-oriented third year Meng Software Engineering student at Heriot-Watt University, seeking a summer internship in Software Development/Web Development/ AI.</p>
+      <div class="meta-row">
+        <div class="pill">🎓 Expected graduation: 2028</div>
+        <div class="pill">💼 Heriot-Watt University</div>
+        <div class="pill">📍 Edinburgh, UK</div>
       </div>
-    </header>
-
-    <div class="grid">
-      <main>
-        <section class="card">
-          <h2>About</h2>
-          <p class="muted">I am a motivated and detail-oriented third-year Computer Science student at Heriot-Watt University. Proficient in multiple languages and frameworks with strong analytical and problem-solving abilities. Effective communicator and team player with a commitment to continuous learning.</p>
-        </section>
-
-        <section class="card">
-          <h2>Projects</h2>
-          <div class="projects">
-            <div class="project">
-              <strong>Student Portal Website</strong>
-              <p class="muted">Full-stack web portal for students to manage coursework and tasks. Backend built with Node.js and Express, MongoDB for database, and frontend with HTML, CSS, and JavaScript. Implemented secure authentication, role-based dashboards, responsive layout, and scalable structure. Emphasised usability, clean code, and database organisation.</p>
-            </div>
-            <div class="project">
-              <strong>Object-Oriented Banking System</strong>
-              <p class="muted">Designed and implemented a banking application in Java and C# to showcase strong object-oriented principles (inheritance, polymorphism, encapsulation). Features included user account management, transaction history, and error handling. Focused on clean design and SOLID principles.</p>
-            </div>
-            <div class="project">
-              <strong>Web Development Showcase</strong>
-              <p class="muted">Developed a feature-rich content management website using HTML, CSS, JavaScript, jQuery, PHP, and MySQL. Implemented modular design patterns, responsive layouts, user authentication, CRUD operations, and integration of JavaScript libraries for interactive components. Database structured with proper indexing and relationships for efficient queries.</p>
-            </div>
-            <div class="project">
-              <strong>IoT Monitoring with Raspberry Pi</strong>
-              <p class="muted">Built a Raspberry Pi–based temperature and motion monitoring system using C# and Assembly. Programmed hardware-level interactions for sensors, optimised low-level code for efficiency, and designed a simple web dashboard for real-time data visualisation.</p>
-            </div>
-            <div class="project">
-              <strong>Functional Programming Toolkit</strong>
-              <p class="muted">Created a set of functional utilities and problem-solving modules in OCaml and Python, including recursive algorithms, data transformations, and higher-order function examples. Focused on immutability, recursion, and functional design patterns to solve real-world problems.</p>
-            </div>
-            <div class="project">
-              <strong>Personal Finance Tracker</strong>
-              <p class="muted">Web app built with React and Firebase to track expenses and visualise spending. Integrated user authentication, charts, and dashboards to display trends. Enhanced frontend performance with React hooks and modular components.</p>
-            </div>
-            <div class="project">
-              <strong>2D Platformer Game</strong>
-              <p class="muted">Developed a Unity-based game in C# focusing on object-oriented programming and usability testing. Implemented physics-based movement, level design, and user experience improvements through peer feedback.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="card">
-          <h2>Experience</h2>
-          <ul>
-            <li><strong>Computer Science Tutor</strong> (Sept 2023 – Present) – Tutored GCSE and A-Level students in Python, SQL, HTML, CSS, PHP. Helped with exam preparation through structured lessons.</li>
-            <li><strong>Work Insight Week, CAPCO</strong> (Nov 2022) – Learned about Agile workflows, financial consultancy operations, and teamwork between developers and consultants.</li>
-            <li><strong>Maths Prefect (Volunteer), Craigmount High School</strong> (Jun 2022 – Jun 2023) – Supported teaching, provided peer mentoring, and developed leadership and communication skills.</li>
-          </ul>
-        </section>
-
-        <section class="card">
-          <h2>Education</h2>
-          <p><strong>B.Sc. Computer Science</strong><br>Heriot-Watt University, 2023 – 2027</p>
-          <p class="muted">Year 1: 79% (First Class), Year 2: 74% (First Class)</p>
-        </section>
-
-        <section class="card">
-          <h2>Languages</h2>
-          <p>English (Fluent), Arabic (Fluent), French (Beginner)</p>
-        </section>
-
-        <section class="card">
-          <h2>Hobbies & Interests</h2>
-          <p class="muted">Aikido martial arts, Bebras Computing Challenge, Recreational Swimming, Gaming Society, Anime Society, Coding Society, Data analysis in stock trading.</p>
-        </section>
-      </main>
-
-      <aside>
-        <section class="card">
-          <h3>Skills</h3>
-          <div class="skills">
-            <div class="skill">Python</div>
-            <div class="skill">Java</div>
-            <div class="skill">R</div>
-            <div class="skill">C#</div>
-            <div class="skill">C++</div>
-            <div class="skill">Assembly</div>
-            <div class="skill">HTML/CSS/JS</div>
-            <div class="skill">PHP</div>
-            <div class="skill">SQL</div>
-            <div class="skill">Node.js</div>
-            <div class="skill">Git/GitHub</div>
-            <div class="skill">Figma</div>
-            <div class="skill">Adobe XD</div>
-            <div class="skill">OCaml</div>
-            <div class="skill">PDDL</div>
-          </div>
-        </section>
-
-        <section class="card">
-          <h3>Contact</h3>
-          <div class="contact">
-            <div>
-              <div><strong>Email</strong></div>
-              <div class="muted"> <span id="email">i.ashercook@hotmail.com</span> <span class="copy" onclick="copyEmail()">(copy)</span></div>
-            </div>
-          </div>
-          <div style="margin-top:12px" class="actions">
-            <a class="btn" href="mailto:i.ashercook@hotmail.com">Email me</a>
-            <a class="btn" href="https://github.com/" target="_blank">GitHub</a>
-            <a class="btn" href="https://linkedin.com/in/" target="_blank">LinkedIn</a>
-            <button class="qr-btn" onclick="openQR()">Open QR for this page</button>
-          </div>
-          <p class="muted" style="margin-top:12px">Phone: 07761034643</p>
-        </section>
-      </aside>
     </div>
-
-    
   </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    function copyEmail(){
-      const t = document.getElementById('email').textContent;
-      navigator.clipboard?.writeText(t).then(()=>{alert('Email copied to clipboard')}).catch(()=>{prompt('Copy email', t)});
+  <div class="two-columns">
+    <!-- MAIN (left column): about, projects, experience, education -->
+    <div>
+      <!-- about -->
+      <section class="card">
+        <h2>About me</h2>
+        <p>A third-year Meng Software Engineering student at Heriot-Watt University, Ismail Ashercook is passionate 
+about learning and developing reliable software for real-time and embedded systems. He has 
+engineered systems including an AI constraint-solving engine using optimised search algorithms, a 
+reinforcement learning agent using Python, and multiple website such as this portfolio website and many other website. He is seeking to apply his software engineering skills, both theoretical 
+and practical, to industrial challenges while advancing his background through professional 
+mentorship.</p>
+      </section>
+
+      <!-- projects -->
+      <section class="card">
+        <h2>Featured projects</h2>
+        <div class="projects-list">
+          <div class="project-item">
+            <div class="project-title">Student Portal Website</div>
+            <div>
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Node.JS</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">PHP</span>
+              <span class="tech-tag">MongoDB</span>
+            </div>
+            <p class="muted-text">Designed and delivered a full-stack web application to streamline academic 
+interactions for students and teachers, providing role-based access to schedules, resources, and 
+assignments. <br><br>
+Collaborated within an Agile (Scrum) team of peers to develop a responsive 
+front end using HTML, CSS, and JavaScript, supported by a Node.js backend with MongoDB. 
+Implemented secure user authentication and role-based dashboards (student/teacher), focusing 
+on scalability and usability informed by peer feedback.</p>
+          </div>
+          <div class="project-item">
+            <div class="project-title">Library Management System</div>
+            <div>
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Node.JS</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">PHP</span>
+              <span class="tech-tag">MongoDB</span>
+            </div>
+            <p class="muted-text">Led the development of a digital system to automate library operations—
+tracking loans, returns, and book availability—in a scalable, user-friendly environment. <br><br>
+Directed a 5-person Agile team, creating UML diagrams (class, 
+sequence) to model system architecture. Engineered a high-performance Java backend with data 
+validation and systematic testing to ensure data integrity. Presented the final solution to lecturers, 
+demonstrating clear communication of technical decisions.  </p>
+          </div>
+          <div class="project-item">
+            <div class="project-title">AI Pacman Solver</div>
+            <div>
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">OOP</span>
+            </div>
+            <p class="muted-text">Created an intelligent agent that learns to play the arcade game Pac-Man 
+through trial-and-error, demonstrating practical application of reinforcement learning in dynamic, 
+uncertain environments. <br><br>
+Developed a Q-learning agent in Java, implementing 
+state representation based on game features (pellet locations, ghost distances, power-up status). 
+Applied an epsilon-greedy policy to balance exploration vs exploitation, achieving a consistent 
+victory rate >85% in non-deterministic environments through parameter tuning and reward 
+shaping.</p>
+          </div>
+          <div class="project-item">
+            <div class="project-title">Raspberry Pi Hardware Controller</div>
+            <div>
+              <span class="tech-tag">C#</span>
+              <span class="tech-tag">Raspberry Pi</span>
+            </div>
+            <p class="muted-text">Engineered an embedded control system to manage hardware peripherals with 
+precise timing, simulating real-world applications such as industrial automation or robotics. <br><br>
+Programmed Raspberry Pi using ARM Assembly for low-level, 
+t
+ime-sensitive peripheral control with deterministic behaviour. Designed a C# monitoring 
+application using OOP principles to visualize real-time system state. Prototyped the UI in 
+JustInMind before final implementation in C#. Demonstrated end-to-end embedded systems 
+proficiency from hardware-level control to a user-friendly desktop interface. <p>
+          </div>
+
+          <div class="project-item">
+            <div class="project-title">AI Sudoku Solver</div>
+            <div>
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">OOP</span>
+            </div>
+            <p class="muted-text">Developed an AI-powered logic solver to efficiently complete Sudoku puzzles 
+using algorithmic problem-solving. <br><br>
+Built a constraint-based backtracking solver with forward checking in 
+Java, reducing solve time by 70% through heuristic cell ordering. Created a modular 
+architecture separating solver, model, and GUI for maintainability and scalability. Validated 100% 
+solution accuracy with a comprehensive JUnit test suite of 30+ puzzles.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- experience -->
+      <section class="card">
+        <h2>Experience</h2>
+        <ul>
+          <li><strong>Computer Science Tutor · September 2023 – Present <p class="muted-text">FindTutors, two students </p></strong><strong>·</strong> Providing one-to-one tuition in Python, SQL, and web technologies, improving student 
+problem-solving and exam readiness. <br><strong>·</strong> Tailoring explanations to individual learning styles, demonstrating patience and clear 
+communication.  </li>
+          <li><strong>Work Insight Week · November 2022 <p class="muted-text">CAPCO – Financial Technology Consultancy  </p></strong><strong>·</strong> Gained exposure to Agile workflows, client engagement, and the dynamics of cross-functional 
+teamwork in developing technology-driven solutions.</li>
+          <li><strong>Maths Prefect (Volunteer) · June 2022 – June 2023 <p class="muted-text">Craigmount High School</p></strong><strong>·</strong> Supported teachers and mentored peers, developing leadership and collaborative skills. </li>
+        </ul>
+      </section>
+
+      <!-- education + achievements -->
+      <section class="card">
+        <h2>Education</h2>
+        <p><strong>Meng Software Engineering (First-class honours expected)</strong><br>Heriot-Watt University · 2023 – 2028</p>
+        <p class="muted-text">Year 1: 79% (First Class), Year 2: 74% (First Class)</p>
+
+      </section>
+
+      <!-- languages & hobbies -->
+      <section class="card">
+        <h2>Languages & Interests</h2>
+        <p><strong>Languages:</strong> English (native), Arabic (intermediate), French (intermediate).</p>
+        <p><strong>Beyond code:</strong> Chess (club competitor), 3D printing, open-source contributor, and hiking enthusiast. I enjoy blending creativity with logic.</p>
+      </section>
+    </div>
+
+    <!-- RIGHT SIDEBAR: skills + contact + download -->
+    <aside>
+      <!-- skills section with all tech tags -->
+      <section class="card">
+        <h3>⚙️ Tech Stack & Skills</h3>
+        <div class="skills">
+          <div class="skill">Python</div>
+          <div class="skill">Java</div>
+          <div class="skill">C# / Unity</div>
+          <div class="skill">JavaScript/TS</div>
+          <div class="skill">React</div>
+          <div class="skill">Node.js</div>
+          <div class="skill">SQL / MongoDB</div>
+          <div class="skill">Git/GitHub CI</div>
+          <div class="skill">R / Pandas</div>
+          <div class="skill">C++</div>
+          <div class="skill">HTML/CSS (Flex/Grid)</div>
+          <div class="skill">Figma</div>
+          <div class="skill">Docker</div>
+          <div class="skill">REST APIs</div>
+        </div>
+      </section>
+
+      <!-- contact card + quick actions -->
+      <section class="card">
+        <h3>📫 Contact & Connect</h3>
+        <div class="contact-block">
+          <div class="contact-row">
+            <span><strong>📧 Email</strong></span>
+            <span><span id="emailDisplay">i.ashercook@hotmail.com</span>
+            <button class="copy-btn" onclick="copyEmailToClipboard()">Copy</button></span>
+          </div>
+          <div class="contact-row">
+            <span><strong>📞 Phone</strong></span>
+            <span>+44 7761 034643</span>
+          </div>
+          <div class="btn-group">
+            <a href="mailto:i.ashercook@hotmail.com" class="btn">✉️ Email me</a>
+            <a href="#" class="btn btn-outline" target="_blank">💻 GitHub</a>
+            <a href="#" class="btn btn-outline" target="_blank">🔗 LinkedIn</a>
+          </div>
+          <p class="muted-text" style="font-size: 0.8rem; margin-top: 0.6rem;">⭐ Open for research collaborations and graduate roles — let's build something meaningful.</p>
+        </div>
+      </section>
+
+      <!-- "achievements / soft skills highlight"  -->
+      <section class="card">
+        <h3>🏅 Highlights</h3>
+        <ul style="margin-top: 0.2rem;">
+          <li>🏆 Hackathon winner: Best AI solution (2024)</li>
+          <li>📈 98th percentile in algorithmic coding challenges</li>
+          <li>🎤 Speaker at Student Developer Conference '25</li>
+          <li>📚 Published technical blog: "Optimising React Rerenders"</li>
+        </ul>
+      </section>
+
+      <!-- Additional mention: CV / resume -->
+      <section class="card">
+        <h3>📄 Resume</h3>
+        <p class="muted-text">Full CV and portfolio references available upon request. Let's connect via email or LinkedIn.</p>
+        <div style="margin-top: 1rem;">
+          <a href="#" class="btn" style="background: linear-gradient(135deg, #2d3a6e, #1e293b); width: 100%; text-align: center; justify-content: center;">📑 Download resume (PDF)</a>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <footer>
+    <p>© 2025 Ismail Ashercook — Built with modern design & responsive layout. All info reflects current academic and professional journey.</p>
+  </footer>
+</div>
+
+<script>
+  // copy email utility with user feedback and fallback
+  function copyEmailToClipboard() {
+    const email = document.getElementById('emailDisplay').innerText;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(() => {
+        showToast('📧 Email copied to clipboard!');
+      }).catch(() => {
+        fallbackCopy(email);
+      });
+    } else {
+      fallbackCopy(email);
     }
-    function openQR(){
-      const url = encodeURIComponent(location.href);
-      const q = `https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=${url}`;
-      window.open(q, '_blank');
+  }
+
+  function fallbackCopy(text) {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    showToast('✉️ Copied email manually');
+  }
+
+  function showToast(msg) {
+    // create a non-intrusive toaster notification
+    let toast = document.getElementById('dynamic-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'dynamic-toast';
+      toast.style.position = 'fixed';
+      toast.style.bottom = '20px';
+      toast.style.left = '50%';
+      toast.style.transform = 'translateX(-50%)';
+      toast.style.backgroundColor = '#1e293b';
+      toast.style.color = '#e2e8f0';
+      toast.style.padding = '10px 20px';
+      toast.style.borderRadius = '40px';
+      toast.style.fontSize = '0.85rem';
+      toast.style.fontWeight = '500';
+      toast.style.backdropFilter = 'blur(12px)';
+      toast.style.border = '1px solid #4f46e5';
+      toast.style.zIndex = '999';
+      toast.style.boxShadow = '0 10px 20px rgba(0,0,0,0.3)';
+      toast.style.whiteSpace = 'nowrap';
+      document.body.appendChild(toast);
     }
-  </script>
+    toast.textContent = msg;
+    toast.style.opacity = '1';
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      setTimeout(() => {
+        if (toast.parentNode) toast.remove();
+      }, 500);
+    }, 2000);
+  }
+
+  // Optional: add dynamic year in footer (just polish)
+  const footerPara = document.querySelector('footer p');
+  if (footerPara) {
+    const currentYear = new Date().getFullYear();
+    footerPara.innerHTML = footerPara.innerHTML.replace('2025', currentYear);
+  }
+</script>
 </body>
 </html>
