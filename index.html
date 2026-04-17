@@ -490,44 +490,73 @@ demonstrating clear communication of technical decisions.  </p>
               <span class="tech-tag">Java</span>
               <span class="tech-tag">OOP</span>
             </div>
-            <p class="muted-text">Created an intelligent agent that learns to play the arcade game Pac-Man 
-through trial-and-error, demonstrating practical application of reinforcement learning in dynamic, 
-uncertain environments. <br><br>
-Developed a Q-learning agent in Java, implementing 
-state representation based on game features (pellet locations, ghost distances, power-up status). 
-Applied an epsilon-greedy policy to balance exploration vs exploitation, achieving a consistent 
-victory rate >85% in non-deterministic environments through parameter tuning and reward 
-shaping.</p>
+            <p class="muted-text">Developed an intelligent decision-making agent in Java that learns optimal behaviour in a dynamic, partially observable maze environment through trial-and-error reinforcement learning. Implemented a tabular Q-learning agent with hand-crafted state features (distance to moving adversaries, collectible locations, power-up status) and an ε-greedy exploration policy. Tuned learning rate, discount factor, and reward shaping to achieve stable convergence. Also implemented Value Iteration and Policy Iteration agents using Markov Decision Process (MDP) planning with simplified deterministic transition models. Evaluated agents against stationary and stochastic ghost controllers, reporting win rates and average scores across multiple episodes.</p>
           </div>
+         
+         <div class="project-item">
+            <div class="project-title">AI Sudoku Solver</div>
+            <div>
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">OOP</span>
+            </div>
+            <p class="muted-text">Developed an AI-powered logic solver to efficiently complete Sudoku puzzles using constraint satisfaction problem (CSP) techniques. Built a backtracking solver with forward checking and heuristic cell ordering (minimum remaining values), reducing solve time significantly. Formally modelled Sudoku as a CSP with 81 variables, domain {1..9}, and row/column/subgrid constraints. Compared theoretical performance against A* search, analysing time complexity, branching factor, and heuristic viability. Validated 100% solution accuracy with a JUnit test suite of 30+ puzzles. Designed a modular Java architecture separating solver, model, and GUI for maintainability.</p>
+          </div>
+         
           <div class="project-item">
             <div class="project-title">Raspberry Pi Hardware Controller</div>
             <div>
               <span class="tech-tag">C#</span>
               <span class="tech-tag">Raspberry Pi</span>
             </div>
-            <p class="muted-text">Engineered an embedded control system to manage hardware peripherals with 
-precise timing, simulating real-world applications such as industrial automation or robotics. <br><br>
-Programmed Raspberry Pi using ARM Assembly for low-level, 
-t
-ime-sensitive peripheral control with deterministic behaviour. Designed a C# monitoring 
-application using OOP principles to visualize real-time system state. Prototyped the UI in 
-JustInMind before final implementation in C#. Demonstrated end-to-end embedded systems 
-proficiency from hardware-level control to a user-friendly desktop interface. <p>
+            <p class="muted-text">Engineered an embedded control system on Raspberry Pi using C and ARM Assembly to manage LEDs, button, and LCD with precise timing for deterministic I/O behaviour. Implemented ARM Assembly subroutines for pattern matching logic and low-level GPIO operations (pinMode, digitalWrite, readButton) without external libraries. Developed timer-based input separation to handle sequential user entry via a single button, translating press counts into numerical values. Designed visual feedback protocols using dual-LED blink patterns for data validation, control signalling, and round transitions, with LCD output for real-time status display. Demonstrated end-to-end proficiency in embedded systems, from bare-metal peripheral control to robust user interaction handling. <p>
           </div>
 
+          
+
           <div class="project-item">
-            <div class="project-title">AI Sudoku Solver</div>
+            <div class="project-title">Concurrent Job Scheduling System</div>
             <div>
               <span class="tech-tag">Java</span>
-              <span class="tech-tag">OOP</span>
+              
             </div>
-            <p class="muted-text">Developed an AI-powered logic solver to efficiently complete Sudoku puzzles 
-using algorithmic problem-solving. <br><br>
-Built a constraint-based backtracking solver with forward checking in 
-Java, reducing solve time by 70% through heuristic cell ordering. Created a modular 
-architecture separating solver, model, and GUI for maintainability and scalability. Validated 100% 
-solution accuracy with a comprehensive JUnit test suite of 30+ puzzles.</p>
+            <p class="muted-text">Developed a thread-safe JobShopManager in Java using extrinsic monitors (ReentrantLock and Condition) to coordinate simulated machines (threads) processing manufacturing jobs. Implemented FCFS (First-Come First-Served) and SJF (Shortest Job First) scheduling policies for job allocation across multiple machine types. Ensured deterministic, consistent behaviour under concurrent execution without spinlocks, polling, or synchronized keyword. Managed dynamic arrival of machine threads and job specifications in arbitrary order, blocking threads until sufficient resources available for a complete job. Validated thread safety through repeatable test runs and incremental Git commits with meaningful messages.</p>
           </div>
+
+
+
+          <div class="project-item">
+            <div class="project-title">Language Interpreter & Compiler</div>
+            <div>
+              <span class="tech-tag">Ocamel</span>
+              
+            </div>
+            <p class="muted-text">Developed a complete interpreter and compiler for a custom programming language (FUNC) from scratch. Implemented a lexer for tokenization, a parser for abstract syntax tree (AST) construction, and code generation for a target architecture. Delivered both basic and advanced code generation phases, producing executable output. Also built an interpreter for direct execution of FUNC source code. Applied compiler design principles including lexical analysis, syntax checking, and semantic translation.<p>
+          </div>
+
+
+
+
+      <div class="project-item">
+            <div class="project-title">Interactive Prototyping & User Experimentation</div>
+            <div>
+              <span class="tech-tag">JustInMind</span>
+              <span class="tech-tag">Figma</span>
+           
+            </div>
+            <p class="muted-text">Designed a JustInMind prototype for a clothes shopping website and conducted a controlled usability experiment with two interface variants. Collected task completion data and user feedback via questionnaires, then analysed and reported results in a structured scientific paper following ethical and experimental design guidelines.</p>
+          </div>
+
+
+          <div class="project-item">
+            <div class="project-title">Automated Planning</div>
+            <div>
+              <span class="tech-tag">PDDL</span>
+              
+            </div>
+            <p class="muted-text">Modelled a lunar rover mission planning problem using PDDL (Planning Domain Definition Language) for autonomous task execution under resource constraints. Defined domain with object types (rover, lander, location, sample, data), predicates for position, connectivity, data storage, and sample collection, and actions (deploy, move, capture image, scan, transmit, collect sample, return). Implemented two problem instances with waypoint graphs (up to 6 nodes, 2 landers, 2 rovers). Extended domain with astronaut presence constraints (control room vs docking bay) for mission extension. Generated valid plans using Fast Downward and planning.domains, achieving fully autonomous mission goal satisfaction.</p>
+          </div>
+
+
         </div>
       </section>
 
@@ -607,12 +636,14 @@ teamwork in developing technology-driven solutions.</li>
 
       <!-- "achievements / soft skills highlight"  -->
       <section class="card">
-        <h3>🏅 Highlights</h3>
+        <h3>🏅 Awards</h3>
         <ul style="margin-top: 0.2rem;">
-          <li>🏆 Hackathon winner: Best AI solution (2024)</li>
-          <li>📈 98th percentile in algorithmic coding challenges</li>
-          <li>🎤 Speaker at Student Developer Conference '25</li>
-          <li>📚 Published technical blog: "Optimising React Rerenders"</li>
+          <li>Bebras Computing Challenge – recognised for strong performance in a national computational 
+thinking and problem‑solving competition.</li>
+          <li>Advanced Higher Award in Computing Science – school achievement award for excellence.</li>
+          <li>Higher Award in Computing Science – school achievement award for excellence.</li>
+          <li>Saltire Award – Scottish Government recognition for sustained community service and 
+leadership.</li>
         </ul>
       </section>
 
